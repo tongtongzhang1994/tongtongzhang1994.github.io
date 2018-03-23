@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <title>tongtongzhang欢迎你</title>
 </head>
-<body >
-<script>window.location.href = "html/love20180323.html";</script>
+<body style="text-align: center">
+<!--<script>window.location.href = "html/love20180323.html";</script>-->
+
+<h1 id="sp" style="align-content: center">3</h1>
+
+<script type="text/javascript">
+    onload = function () {
+        setInterval(go, 1000);
+    };
+    var x = 3; //利用了全局变量来执行
+    function go() {
+        x--;
+        if (x > 0) {
+            document.getElementById("sp").innerHTML = x; //每次设置的x的值都不一样了。
+        } else {
+            location.href = 'html/love20180323.html';
+        }
+    }
+</script>
+
 </body>
 </html>

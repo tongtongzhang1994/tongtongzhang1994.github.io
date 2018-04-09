@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+           maximum-scale=1.0, user-scalable=no"/>
     <script type="text/javascript">
         function autoPlayAudio() {
             wx.config({
@@ -15,13 +17,13 @@
                 signature: '',
                 jsApiList: []
             });
-            wx.ready(function() {
+            wx.ready(function () {
                 document.querySelector('audio').play();
             });
         }
 
-        $('html').one('touchstart',function(){
-            if(music.hasClass('on')){
+        $('html').one('touchstart', function () {
+            if (music.hasClass('on')) {
                 audio.play();
             }
         });

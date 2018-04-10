@@ -57,27 +57,33 @@
     <script type="text/javascript" src="./jscss/jquery.min.js"></script>
     <script>
         $(document).ready(function (e) {
-            /*移动滚动条到最下方*/
-            timer = setInterval("$.change()", 3000);
+            /* 定时执行方法 */
+            timer = setInterval("$.change()", 2000);
             t = 0;
             $("#t-0").fadeIn();
             $(document).click(
                 function () {
-                    /*如果用户点击了，就取消自动播放*/
-                    clearInterval(timer);
-                    $.change();
+                    var divTitle = $("div.tittle");
+                    if (t < divTitle.length) {
+                        /*如果用户点击了，就取消自动播放*/
+                        window.clearInterval(timer);
+                        $.change();
+                    } else {
+                        alert("嘿嘿");
+                    }
+
                 }
             );
             /*切换*/
             $.change = function () {
                 t++;
-                var title = $("div.tittle");
-                if (t < title.length) {
-                    console.log(t + " - " + title.length);
-
-                        title.slideUp(1500).fadeOut();
-                        $("#t-" + t).slideDown(1500).fadeIn();
+                var divTitle = $("div.tittle");
+                if (t < divTitle.length) {
+                    console.log(t + " - " + divTitle.length);
+                    divTitle.slideUp(1500).fadeOut();
+                    $("#t-" + t).slideDown(1500).fadeIn();
                 } else {
+                    /* 取消定时方法 */
                     window.clearInterval(timer);
                 }
             }

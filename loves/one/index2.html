@@ -13,8 +13,20 @@
 
 <body>
 <div id="mainDiv">
-    <div id="content" style="margin-top: 2rem ;margin-left: 1rem; margin-right: 1rem">
-        <div id="code">
+    <div id="content" style="margin-left: 1rem; margin-right: 1rem">
+        <div id="code" style="padding-bottom: 4rem">
+            <div id="loveHeart">
+                <div id="words">
+                    <div id="messages" style="display: block;">
+                        曾经沧海难为水，除却巫山不是云。
+                        <div id="elapseClock" style="display:none"></div>
+                    </div>
+                    <div id="loveu" style="display: block;">
+                        取次花丛懒回顾，半缘修道半缘君。<br>
+                        <div class="signature"> -- LOVE</div>
+                    </div>
+                </div>
+            </div>
             <span class="comments">/**</span>
             <br>
             <span class="space">
@@ -76,22 +88,18 @@
                         <br>
                         i.love(u);
                         <br>
+                        i.wait(u);
+                        <br>
+                        i.loveForever(u);
+                        <br>
                     </span>
                 </span>
-            </span>_
-        </div>
-        <div id="loveHeart">
-            <canvas id="garden"></canvas>
-            <div id="words">
-                <div id="messages" style="display: block;">
-                    曾经沧海难为水，除却巫山不是云。
-                    <div id="elapseClock" style="display:none"></div>
-                </div>
-                <div id="loveu" style="display: block;">
-                    取次花丛懒回顾，半缘修道半缘君。<br>
-                    <div class="signature"> -- LOVE</div>
-                </div>
-            </div>
+            </span>
+            <br>
+            <br>
+            <br>
+            <br>
+            _
         </div>
     </div>
 
@@ -100,12 +108,12 @@
 
 <script type="text/javascript">
     var divCode = $("#code");
-    var a = setInterval(function () {
-        console.log("结束");
-        clearInterval(a);
-    }, 1980);
+    //    var a = setInterval(function () {
+    //        console.log("结束");
+    //        clearInterval(a);
+    //    }, 1980);
 
-    divCode.typewriter(1);
+    divCode.typewriter(10);
 </script>
 </body>
 </html>

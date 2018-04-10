@@ -6,22 +6,15 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
            maximum-scale=1.0, user-scalable=no"/>
-    <style type="text/css">
-        @font-face {
-            font-family: digit;
-            src: url('digital-7_mono.ttf') format("truetype");
-        }
-    </style>
     <link href="./jscss/default.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="../../js/jquery.js"></script>
-    <script type="text/javascript" src="./jscss/garden.js"></script>
     <script type="text/javascript" src="./jscss/functions.js"></script>
 </head>
 
 <body>
 <div id="mainDiv">
     <div id="content" style="margin-top: 2rem ;margin-left: 1rem; margin-right: 1rem">
-        <div id="code" style="height: 66rem">
+        <div id="code">
             <span class="comments">/**</span>
             <br>
             <span class="space">
@@ -33,9 +26,9 @@
                     <span class="space">
                         <span class="comments">*/</span>
                         <br>
-                        Boy i = <span class="keyword">new</span> Boy(<span class="string">"某人"</span>);
+                        Boy i = <span class="keyword">new</span> Boy(<span class="string">"桐"</span>);
                         <br>
-                        Girl u = <span class="keyword">new</span> Girl(<span class="string">"某人"</span>);
+                        Girl u = <span class="keyword">new</span> Girl(<span class="string">"文"</span>);
                         <br>
                         <span class="comments">// 2013年9月11日,我拥抱了你. (铺垫)省略一万字</span>
                         <br>
@@ -49,47 +42,40 @@
                         <br>
                         Lovers lovers = <span class="keyword">new</span> Lovers(i,u);
                         <br>
-                        <span class="comments">// 没有原因。</span>
                         <br>
-                        <span class="keyword">var</span>
-                        reason=i.ask(u);
+                        <span class="comments">// 一起吃饭</span>
                         <br>
-                        <span class="comments">// 我们并没有足够的了解对方。</span>
+                        lovers.eat();
                         <br>
-                        $("body").append(reason);
+                        <span class="comments">// 一起学习</span>
                         <br>
-                        <span class="comments">// 我们的关系发展毫无前途。</span>
+                        lovers.study();
                         <br>
-                        <span class="comments">// And take care of u and our love.</span>
+                        <span class="comments">// 一起打球</span>
                         <br>
-                        i.takeCareOf(u);
+                        lovers.playTennis();
                         <br>
-                        <span class="comments">// 所以我一直在等待，我有信心，你会。</span>
+                        <span class="comments">// 一起做好多好多</span>
                         <br>
-                        <span class="keyword">boolean</span> isAccept = <span class="keyword">false</span>;
+                        lovers.movies();
                         <br>
-                        <span class="keyword">while</span> (isAccept) {<br>
-                        <span class="placeholder">i.waitFor(u);
-                            <br>
-                            <span class="placeholder"><span class="comments">// 我觉得是一个重要的决定</span>
-                                <br>
-                                <span class="placeholder">
-                                    <span class="comments">// 你应该忘记之前发生的不愉快的事情。</span>
-                                    <br>
-                                    <span class="placeholder">isAccept = u.thinkOver();
-                                        <br>
-                                        }
-                                        <br>
-                                        <span class="comments">// 如果你接受我，我们将会生活幸福快乐的日子。</span>
-                                        <br>
-                                        u.accept(i);
-                                        <br>
-                                        i.liveHappilyWith(u);
-                                        <br>
-                                    </span>
-                                </span>
-                            </span>
-                        </span>
+                        lovers.cycling();
+                        <br>
+                        lovers.ML();
+                        <br>
+                        <span class="comments">// 吃饭睡觉打豆豆</span>
+                        <br>
+                        ...
+                        <br>
+                        <br>
+                        <span class="comments">// 然后你参军入伍。</span>
+                        <br>
+                        u.joinTheArmy()
+                        <br>
+                        <span class="comments">// I love u. 《算死草》 </span>
+                        <br>
+                        i.love(u);
+                        <br>
                     </span>
                 </span>
             </span>_
@@ -98,12 +84,11 @@
             <canvas id="garden"></canvas>
             <div id="words">
                 <div id="messages" style="display: block;">
-                    某人，
+                    曾经沧海难为水，除却巫山不是云。
                     <div id="elapseClock" style="display:none"></div>
-                    <a href="index3.html" id="accept">请点击这里</a>
                 </div>
                 <div id="loveu" style="display: block;">
-                    ，远。<br>
+                    取次花丛懒回顾，半缘修道半缘君。<br>
                     <div class="signature"> -- LOVE</div>
                 </div>
             </div>
@@ -114,35 +99,13 @@
 
 
 <script type="text/javascript">
-    //    var offsetX = $("#loveHeart").width() / 2;
-    //    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var divCode = $("#code");
+    var a = setInterval(function () {
+        console.log("结束");
+        clearInterval(a);
+    }, 1980);
 
-    //    if (!document.createElement('canvas').getContext) {
-    //        var msg = document.createElement("div");
-    //        msg.id = "errorMsg";
-    //        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
-    //        document.body.appendChild(msg);
-    //        $("#code").css("display", "none");
-    //        $("#copyright").css("position", "absolute");
-    //        $("#copyright").css("bottom", "10px");
-    //        document.execCommand("stop");
-    //    } else {
-    //        setTimeout(function () {
-    //            adjustWordsPosition();
-    //            startHeartAnimation();
-    //        }, 10000);
-    //        $("#accept").click(function () {
-    //            $(this).hide();
-    //            $("#elapseClock").show();
-    //            var together = new Date();
-    //            timeElapse(together);
-    //            setInterval(function () {
-    //                timeElapse(together);
-    //            }, 500);
-    //        });
-    //    }
-    //    adjustCodePosition();
-//    $("#code").typewriter();
+    divCode.typewriter(1);
 </script>
 </body>
 </html>

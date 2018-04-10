@@ -5,19 +5,15 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
            maximum-scale=1.0, user-scalable=no"/>
-    <meta name="viewport" content="width=device-width,user-scalable=no">
-    <!--嘿嘿，禁止缩放-->
-    <link rel="apple-touch-icon-precomposed" href="./jscss/1.png">
-    <meta name="format-detection" content="telephone=no">
     <title>凤求凰</title>
     <style type="text/css">
         body {
             text-align: center;
-            margin: 0px;
-            padding: 0px;
-            font-size: 80px;
+            margin: 0;
+            padding: 0;
+            font-size: 3rem;
             color: #FFF;
-            font-family: "微软雅黑";
+            font-family: "微软雅黑", serif;
             background: #f3961c;
         }
 
@@ -25,26 +21,24 @@
             text-align: left;
         }
 
-        .tittle {
+        div.tittle {
             width: 100%;
             background: #f3961c;
-            top: 0px;
+            top: 0;
             height: 100%;
             z-index: 0;
-            position: absolute;
             position: fixed !important;
             display: none;
             cursor: default;
         }
 
         .big {
-            font-family: "微软雅黑";
+            font-family: "微软雅黑", serif;
             color: #FFF;
-            font-size: 35px;
+            font-size: 4rem;
         }
 
         .tishi {
-            position: absolute;
             position: fixed !important;
             z-index: 99;
             bottom: 10px;
@@ -54,7 +48,7 @@
 
         .tishiContent {
             border: 1px solid #FFF;
-            font-size: 18px;
+            font-size: 1rem;
             padding: 5px;
             cursor: pointer;
             border-radius: 5px;
@@ -63,7 +57,6 @@
     <script type="text/javascript" src="./jscss/jquery.min.js"></script>
     <script>
         $(document).ready(function (e) {
-//            $(document).scrollTop(300);
             /*移动滚动条到最下方*/
             timer = setInterval("$.change()", 3000);
             t = 0;
@@ -78,13 +71,14 @@
             /*切换*/
             $.change = function () {
                 t++;
-                console.log(t + " - " + $(".tittle").length);
-                if (t <= $(".tittle").length) {
-                    $(".tittle").slideUp(1500).fadeOut();
-                    $("#t-" + t).slideDown(1500).fadeIn();
+                var title = $("div.tittle");
+                if (t < title.length) {
+                    console.log(t + " - " + title.length);
+
+                        title.slideUp(1500).fadeOut();
+                        $("#t-" + t).slideDown(1500).fadeIn();
                 } else {
-//                    localStorage["index"] = "1";
-//                    window.location = "index2.html";
+                    window.clearInterval(timer);
                 }
             }
         });
@@ -97,7 +91,7 @@
         <table width="100%" border="0" height="100%">
             <tbody>
             <tr>
-                <td align="center">凤凤<span class="big">求</span>凰凰</td>
+                <td align="center">凤<span class="big">求</span>凰</td>
             </tr>
             </tbody>
         </table>
@@ -140,22 +134,10 @@
             </tbody>
         </table>
     </div>
-
-    <!--<div class="tittle" id="t-5" style="">-->
-    <!--<table width="100%" border="0" height="100%">-->
-    <!--<tbody>-->
-    <!--<tr>-->
-    <!--<td align="center"><br><span class="big"></span></td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-    <!--</table>-->
-    <!--</div>-->
 </center>
 
 <div align="center" class="tishi">
     <span class="tishiContent">轻触屏幕继续</span>
 </div>
-<!--<audio src="zcjdn.mp3" autoplay="autoplay"></audio>-->
-
 </body>
 </html>

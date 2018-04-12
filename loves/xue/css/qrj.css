@@ -14,7 +14,7 @@
 }
 
 .heart-vt {
-    width: 100%;
+    width: 480px;
     top: 0;
     margin-left: -200px;
     overflow: hidden;
@@ -30,7 +30,7 @@
 #valentine {
     display: none;
     z-index: 100;
-    width: 100%;
+    width: 240px;
     left: 0;
     left: 145px \9;
     _left: 145px
@@ -78,14 +78,14 @@
 
 #valentine .shake .heart-wrap {
     position: absolute;
-    width: 100%;
+    width: 240px;
     height: 225px
 }
 
 #valentine .heart-wrap .heart {
     display: block;
     position: relative;
-    width: 100%;
+    width: 240px;
     height: 225px
 }
 

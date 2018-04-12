@@ -8,7 +8,6 @@
 .view-top {
     width: 100%;
     height: 420px;
-    position: relative;
     background: #ffd1d6;
     overflow: hidden
 }
@@ -16,7 +15,7 @@
 .heart-vt {
     width: 480px;
     top: 0;
-    margin-left: -200px;
+    margin-left: -210px;
     overflow: hidden;
     z-index: 3
 }

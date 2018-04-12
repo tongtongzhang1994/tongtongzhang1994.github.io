@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
     <script src="../../js/jquery.lettering.js"></script>
     <script src="../../js/jquery.textillate.js"></script>
-    <script type="text/javascript" src="../../js/functions.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
 </head>
 <body>
 
@@ -35,7 +35,10 @@
 <!--animation.js-->
 <script src="js/qrj.js"></script>
 
-<div id="div_txt">
+<div>
+
+    <canvas id="c" style="z-index: -1;position: absolute;width: 100% ; margin-right: 120px"></canvas>
+    <div id="div_txt">
     <span>
         <span class="bigBlue">叔叔：</span>
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,10 +67,126 @@
         因为我总觉得我比你小，你应该多爱我，即使我对你有多喜欢、多想你，也不想说出来，但是我真的有每天都像你
         ，每天都会和朋友谈起你我也曾幻想过以后和你在一起的日子，想过<span class="bigBlue">无数</span>次。
     </span>
+    </div>
 </div>
 
-<div id="div_txt_bottom"></div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        var canvas = document.getElementById("c");
+        //宽高自适应
+        canvas.width = window.document.body.scrollWidth;
+        canvas.height = document.getElementById("div_txt").scrollHeight;
+        var ctx = canvas.getContext("2d");
+        var c = $("#c");
+        var w, h;
+        var pi = Math.PI;
+        var all_attribute = {
+            num: 40,            			 // 个数
+            start_probability: 0.1,		     // 如果数量小于num，有这些几率添加一个新的
+            radius_min: 0.2,   			     // 初始半径最小值
+            radius_max: 1.3,   			     // 初始半径最大值
+            radius_add_min: .2,               // 半径增加最小值
+            radius_add_max: .4,               // 半径增加最大值
+            opacity_min: 0.1,                 // 初始透明度最小值
+            opacity_max: 0.3, 				 // 初始透明度最大值
+            opacity_prev_min: .003,            // 透明度递减值最小值
+            opacity_prev_max: .005,            // 透明度递减值最大值
+            light_min: 10,                 // 颜色亮度最小值
+            light_max: 40                 // 颜色亮度最大值
+        };
+        var style_color = find_random(0, 360);
+        var all_element = [];
+        window_resize();
+        function start() {
+            window.requestAnimationFrame(start);
+            style_color += .1;
+            ctx.fillStyle = 'hsl(' + style_color + ',100%,98%)';
+            ctx.fillRect(0, 0, w, h);
+            if (all_element.length < all_attribute.num && Math.random() < all_attribute.start_probability) {
+                all_element.push(new ready_run);
+            }
+            all_element.map(function (line) {
+                line.to_step();
+            })
+        }
+
+        function ready_run() {
+            this.to_reset();
+        }
+
+        ready_run.prototype = {
+            to_reset: function () {
+                var t = this;
+                t.x = find_random(0, w);
+                t.y = find_random(0, h);
+                t.radius = find_random(all_attribute.radius_min, all_attribute.radius_max);
+                t.radius_change = find_random(all_attribute.radius_add_min, all_attribute.radius_add_max);
+                t.opacity = find_random(all_attribute.opacity_min, all_attribute.opacity_max);
+                t.opacity_change = find_random(all_attribute.opacity_prev_min, all_attribute.opacity_prev_max);
+                t.light = find_random(all_attribute.light_min, all_attribute.light_max);
+                t.color = 'hsl(' + style_color + ',100%,' + t.light + '%)';
+            },
+            to_step: function () {
+                var t = this;
+                t.opacity -= t.opacity_change;
+                t.radius += t.radius_change;
+                if (t.opacity <= 0) {
+                    t.to_reset();
+                    return false;
+                }
+                ctx.fillStyle = t.color;
+                ctx.globalAlpha = t.opacity;
+                ctx.beginPath();
+                ctx.arc(t.x, t.y, t.radius, 0, 2 * pi, true);
+                ctx.closePath();
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        };
+        function window_resize() {
+            w = window.innerWidth;
+            h = window.innerHeight;
+//            canvas.width = w;
+//            canvas.height = h;
+        }
+
+        $(window).resize(function () {
+            window_resize();
+        });
+        function find_random(num_one, num_two) {
+            return Math.random() * (num_two - num_one) + num_one;
+        }
+
+        (function () {
+            var lastTime = 0;
+            var vendors = ['webkit', 'moz'];
+            for (var xx = 0; xx < vendors.length && !window.requestAnimationFrame; ++xx) {
+                window.requestAnimationFrame = window[vendors[xx] + 'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[xx] + 'CancelAnimationFrame'] ||
+                    window[vendors[xx] + 'CancelRequestAnimationFrame'];
+            }
+
+            if (!window.requestAnimationFrame) {
+                window.requestAnimationFrame = function (callback, element) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+                    var id = window.setTimeout(function () {
+                        callback(currTime + timeToCall);
+                    }, timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+            }
+            if (!window.cancelAnimationFrame) {
+                window.cancelAnimationFrame = function (id) {
+                    clearTimeout(id);
+                };
+            }
+        }());
+        start();
+    });
+</script>
 
 <script>
     var divCode = $("#div_txt");

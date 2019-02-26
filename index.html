@@ -6,24 +6,25 @@
           content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
            maximum-scale=1.0, user-scalable=no"/>
     <title>新的一天，欢迎你</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 </head>
-<body>
-<h2 id="sp" style="align-content: center">3</h2>
-<script type="text/javascript">
-    onload = function () {
-        setInterval(go, 1000);
-    };
-    var x = 3; //利用了全局变量来执行
-    function go() {
-       x--;
-       if (x > 0) {
-           document.getElementById("sp").innerHTML = x; //每次设置的x的值都不一样了。
-       } else {
-           location.href = 'loves/one/index.html';
-       }
-       location.href = 'loves/one/index.html';
-    }
-</script>
+<body class="padding">
+<a href="loves/one/index.html">
+    <button type="button" class="btn btn-primary matchWidth">嘿嘿嘿</button>
+</a>
+<br>
+<br>
+<a href="html/lovedate.html">
+    <button type="button" class="btn btn-primary matchWidth">小日子</button>
+</a>
+
 
 </body>
 </html>

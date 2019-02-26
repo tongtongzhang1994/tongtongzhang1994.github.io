@@ -27,9 +27,9 @@
 <div class="padding">
     <ul class="list-group">
         <li class="list-group-item" id="currentDate"></li>
-        <li class="list-group-item">恋爱纪念日：2013年09月11日</li>
+        <li class="list-group-item">恋爱 ❤️纪念日：2013年09月11日</li>
         <li class="list-group-item" id="dayCharLove"></li>
-        <li class="list-group-item">入伍纪念日：2016年09月27日</li>
+        <li class="list-group-item">入伍 👊纪念日：2016年09月27日</li>
         <li class="list-group-item" id="dayCharArmy"></li>
         <li class="list-group-item" id="dayChar"></li>
     </ul>
@@ -44,23 +44,29 @@
     }, 1000);
 
 
-    var diffLove = getDiffYmd("2013-09-11");
+    // 天数第一天也算，所以2013-09-11减一天
+    var diffLove = getDiffYmd("2013-09-10");
+    var dayCharLoveStr = "2013年09月11日，至今" + diffLove.y + "年" + diffLove.m + "个月";
+    if (diffLove.d > 0) {
+        dayCharLoveStr = dayCharLoveStr + "零" + diffLove.d + "天";
+    }
+    dayCharLoveStr = dayCharLoveStr + "，总计" + (getDayCha(2013, 8, 10)) + "天";
     // 相爱天数
-    document.getElementById("dayCharLove").innerHTML = "2013年09月11日，至今"
-        + diffLove.y + "年" + diffLove.m + "个月零" + diffLove.d + "天，总计"
-        + (getDayCha(2013, 8, 11)) + "天";
+    document.getElementById("dayCharLove").innerHTML = dayCharLoveStr;
 
-    var diffArmy = getDiffYmd("2016-09-27");
+
+    // 天数第一天也算，所以2013-09-11减一天
+    var diffArmy = getDiffYmd("2016-09-26");
+    var dayCharArmyStr = "2016年09月27日，至今" + diffArmy.y + "年" + diffArmy.m + "个月";
+    if (diffArmy.d > 0) {
+        dayCharArmyStr = dayCharArmyStr + "零" + diffArmy.d + "天";
+    }
+    dayCharArmyStr = dayCharArmyStr + "，总计" + (getDayCha(2016, 8, 26)) + "天";
     // 入伍天数
-    document.getElementById("dayCharArmy").innerHTML = "2016年09月27日，至今"
-        + diffArmy.y + "年" + diffArmy.m + "个月零" + diffArmy.d + "天，总计"
-        + (getDayCha(2016, 8, 27)) + "天";
-
+    document.getElementById("dayCharArmy").innerHTML = dayCharArmyStr;
 
     // 假期时间
     document.getElementById("dayChar").innerHTML = "距离2019年07月27日还有：" + getDayCha(2019, 6, 27) + "天";
-
-
 </script>
 
 </body>

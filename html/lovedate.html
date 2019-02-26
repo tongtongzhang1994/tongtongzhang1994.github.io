@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间操作</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!-- 最新的压缩后的 JavaScript 文件 -->
+    <script src="https://unpkg.com/dayjs"></script>
+    <script src="../js/datetime.js"></script>
+</head>
+<body>
+
+<div class="titleDiv">
+
+    <span class="titleTvP">
+        小日子
+    </span>
+
+</div>
+
+<div class="padding">
+    <ul class="list-group">
+        <li class="list-group-item" id="currentDate"></li>
+        <li class="list-group-item">恋爱纪念日：2013年09月11日</li>
+        <li class="list-group-item" id="dayCharLove"></li>
+        <li class="list-group-item">入伍纪念日：2016年09月27日</li>
+        <li class="list-group-item" id="dayCharArmy"></li>
+        <li class="list-group-item" id="dayChar"></li>
+    </ul>
+</div>
+
+
+<script>
+    // 当前时间
+    document.getElementById("currentDate").innerHTML = "当前时间：" + getCurrentDateTime();
+    var timeid = window.setInterval(function () {
+        document.getElementById("currentDate").innerHTML = "当前时间：" + getCurrentDateTime();
+    }, 1000);
+
+
+    var diffLove = getDiffYmd("2013-09-11");
+    // 相爱天数
+    document.getElementById("dayCharLove").innerHTML = "2013年09月11日，至今"
+        + diffLove.y + "年" + diffLove.m + "个月零" + diffLove.d + "天，总计"
+        + (getDayCha(2013, 8, 11)) + "天";
+
+    var diffArmy = getDiffYmd("2016-09-27");
+    // 入伍天数
+    document.getElementById("dayCharArmy").innerHTML = "2016年09月27日，至今"
+        + diffArmy.y + "年" + diffArmy.m + "个月零" + diffArmy.d + "天，总计"
+        + (getDayCha(2016, 8, 27)) + "天";
+
+
+    // 假期时间
+    document.getElementById("dayChar").innerHTML = "距离2019年07月27日还有：" + getDayCha(2019, 6, 27) + "天";
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://unpkg.com/dayjs"></script>
+    <title>Title</title>
+</head>
+<body>
+<ul class="list-group">
+    <li class="list-group-item" id="a1">1</li>
+    <li class="list-group-item" id="a2">2</li>
+    <li class="list-group-item" id="a3">3</li>
+    <li class="list-group-item" id="a4">4</li>
+</ul>
+
+<script>
+
+    <!--dayjs('2019-02-27').diff(dayjs('2019-02-27') 0 天 -->
+    document.getElementById("a1").innerHTML = dayjs().year();
+    document.getElementById("a2").innerHTML = dayjs('2019-02-27').diff(dayjs('2019-02-28'), 'days');
+    document.getElementById("a3").innerHTML = dayjs('2019-02-27').diff(dayjs('2019-02-27'), 'days');
+    document.getElementById("a4").innerHTML = dayjs('2019-02-27').diff(dayjs('2019-02-26'), 'days');
+
+
+    var years = dayjs('2019-02-28').diff(dayjs('2018-02-28'), 'years');
+    console.log("years:" + years);
+    var months = dayjs('2019-02-28').diff(dayjs('2018-02-28'), 'months');
+//    months = months - (12 * years);
+    console.log("months:" + months);
+    var days = dayjs('2019-02-28').diff(dayjs('2018-02-28'), 'days');
+    console.log("days:" + days);
+
+</script>
+
+</body>
+</html>
